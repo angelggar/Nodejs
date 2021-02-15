@@ -1,12 +1,16 @@
-console.log(4)
-const var1=4
-debugger
-console.log(var1)
+const express=require("express")
+const server=express()
+server.get("/", function respuesta(peticion, respuesta){
+    respuesta.send("Hola mundo")
+})
 
-function funcion(a, b, c) {
-    console.log(a);
-    console.log(b, c);
-}
+server.get("/ruta", function respuesta(peticion, respuesta){
+    respuesta.send("Hola ruta")
+})
 
-
-funcion(1,2,3)
+server.get("/imagenes/paisajes", function respuesta(peticion, respuesta){
+    respuesta.send("Hola imagenes")
+})
+server.listen(3000, function inicializacion(){
+    console.log("Escuchando en.. http://localhost:3000/imagenes/paisajes")
+})
